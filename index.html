@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AgentNest, AI kodlama ajanınıza Mac'inizden ayrı, yerel ve izole bir Ubuntu çalışma alanı verir."
+    />
+    <meta name="theme-color" content="#071019" />
+    <title>AgentNest — AI ajanınız için ayrı bir Linux bilgisayar</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">İçeriğe geç</a>
+
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <div class="shell nav-shell">
+        <a class="brand" href="#top" aria-label="AgentNest ana sayfa">
+          <img src="assets/agentnest-icon.png" alt="" width="38" height="38" />
+          <span>AgentNest</span>
+        </a>
+
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Menüyü aç</span>
+          <span></span><span></span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Ana menü">
+          <a href="#neden">Neden AgentNest?</a>
+          <a href="#nasil-calisir">Nasıl çalışır?</a>
+          <a href="#guvenlik">Güvenlik</a>
+          <a href="#gereksinimler">Gereksinimler</a>
+        </nav>
+
+        <button class="button button-small download-trigger" type="button">
+          İndir
+          <span class="button-meta">v1.4.1</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="update-banner" data-update-banner hidden>
+      <div class="shell update-banner-inner">
+        <p><strong data-update-version>Yeni sürüm hazır.</strong> AgentNest'in güncel sürümünü indirebilirsiniz.</p>
+        <button class="text-button download-trigger" type="button">Sürümü gör</button>
+        <button class="icon-button" type="button" data-dismiss-update aria-label="Bildirimi kapat">×</button>
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="shell hero-grid">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">
+              <span class="pulse" aria-hidden="true"></span>
+              Intel Mac için özel beta
+            </div>
+            <h1>AI ajanına<br /><span>ayrı bir Linux</span><br />bilgisayar ver.</h1>
+            <p class="hero-lede">
+              Codex, Claude ve diğer MCP ajanları kodu kursun, çalıştırsın, görsün ve test etsin.
+              Günlük Mac'in ve kişisel dosyaların çalışma alanının dışında kalsın.
+            </p>
+            <div class="hero-actions">
+              <button class="button button-primary download-trigger" type="button">
+                AgentNest'i indir
+                <span class="button-meta">Intel · 172 MB</span>
+              </button>
+              <a class="button button-ghost" href="#nasil-calisir">Nasıl çalıştığını gör</a>
+            </div>
+            <div class="hero-notes" aria-label="Öne çıkan özellikler">
+              <span>macOS 13+</span>
+              <span>Yerel çalışır</span>
+              <span>Telemetri yok</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal" data-delay="1">
+            <div class="orbit orbit-one" aria-hidden="true"></div>
+            <div class="orbit orbit-two" aria-hidden="true"></div>
+            <div class="app-window">
+              <div class="window-bar">
+                <div class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+                <span>AgentNest</span>
+                <span class="local-chip">YEREL</span>
+              </div>
+              <img
+                src="assets/agentnest-overview.png"
+                alt="AgentNest uygulamasında Ubuntu çalışma alanı kontrol paneli"
+                width="2384"
+                height="1800"
+              />
+            </div>
+            <div class="status-card status-card-top" aria-hidden="true">
+              <span class="status-icon">⌁</span>
+              <div><small>AJAN BAĞLANTISI</small><strong>Hazır</strong></div>
+            </div>
+            <div class="status-card status-card-bottom" aria-hidden="true">
+              <span class="status-icon ubuntu">●</span>
+              <div><small>ÇALIŞMA ALANI</small><strong>Ubuntu 24.04</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Teknik özellikler">
+        <div class="shell proof-grid">
+          <div><strong>16</strong><span>MCP aracı</span></div>
+          <div><strong>8'e kadar</strong><span>ayrı ajan alanı</span></div>
+          <div><strong>0</strong><span>telemetri</span></div>
+          <div><strong>%100</strong><span>yerel kontrol</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="neden">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <div>
+              <span class="kicker">Korumalı üretkenlik</span>
+              <h2>Ajan çalışsın.<br />Mac'in sana kalsın.</h2>
+            </div>
+            <p>
+              AgentNest, güçlü bir kodlama ajanıyla çalışırken ihtiyaç duyduğun erişimi verir;
+              normal macOS ortamını varsayılan olarak sınırın dışında tutar.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card feature-large reveal">
+              <div class="feature-topline"><span>01</span><span class="card-tag">İZOLASYON</span></div>
+              <div class="isolation-visual" aria-hidden="true">
+                <div class="agent-node">
+                  <span class="node-icon">A</span>
+                  <small>AI AJANI</small>
+                </div>
+                <div class="connection-line"><i></i><i></i><i></i></div>
+                <div class="linux-node">
+                  <span class="node-icon">⌘</span>
+                  <small>UBUNTU</small>
+                </div>
+                <div class="boundary-label">YEREL SINIR</div>
+              </div>
+              <div>
+                <h3>Gerçek bir Linux alanı, belirgin bir sınır.</h3>
+                <p>QEMU/HVF içindeki Ubuntu; terminal, ekran, fare, klavye ve checkpoint erişimini MCP üzerinden sunar.</p>
+              </div>
+            </article>
+
+            <article class="feature-card reveal" data-delay="1">
+              <div class="feature-topline"><span>02</span><span class="card-tag">GÖRÜNÜRLÜK</span></div>
+              <div class="mini-console" aria-hidden="true">
+                <span>$ agentnest run</span>
+                <span class="console-dim">→ workspace acquired</span>
+                <span class="console-accent">✓ tests passed</span>
+              </div>
+              <h3>Ne yaptığını canlı gör.</h3>
+              <p>Komutları, ilerlemeyi ve görsel testi aynı yerel kontrol merkezinden takip et.</p>
+            </article>
+
+            <article class="feature-card feature-accent reveal" data-delay="2">
+              <div class="feature-topline"><span>03</span><span class="card-tag">KURTARMA</span></div>
+              <div class="checkpoint-visual" aria-hidden="true">
+                <div class="checkpoint-ring"><span>↺</span></div>
+                <div><strong>Temiz taban</strong><small>Her zaman geri dönülebilir</small></div>
+              </div>
+              <h3>Deney yap, sonra geri sar.</h3>
+              <p>Bilinen temiz tabana dön veya önemli anlar için adlandırılmış checkpoint'ler oluştur.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-workflow" id="nasil-calisir">
+        <div class="shell">
+          <div class="section-heading compact reveal">
+            <div>
+              <span class="kicker">Üç adım</span>
+              <h2>Kur. Bağla. Bırak çalışsın.</h2>
+            </div>
+          </div>
+
+          <ol class="steps">
+            <li class="reveal">
+              <span class="step-number">01</span>
+              <div class="step-icon" aria-hidden="true">↓</div>
+              <h3>AgentNest'i kur</h3>
+              <p>Uygulamayı Mac'ine taşı. Ubuntu çalışma alanını tek akışta otomatik hazırla.</p>
+            </li>
+            <li class="reveal" data-delay="1">
+              <span class="step-number">02</span>
+              <div class="step-icon" aria-hidden="true">⌁</div>
+              <h3>Ajanını bağla</h3>
+              <p>Codex, Claude, Cursor veya standart bir MCP istemcisini rehberli kurulumla bağla.</p>
+            </li>
+            <li class="reveal" data-delay="2">
+              <span class="step-number">03</span>
+              <div class="step-icon" aria-hidden="true">▶</div>
+              <h3>Görevi gönder</h3>
+              <p>Ajan kodu Linux'ta çalıştırırken ilerlemeyi izle; gerektiğinde doğru ekrana müdahale et.</p>
+            </li>
+          </ol>
+
+          <div class="product-shot reveal">
+            <div class="shot-caption">
+              <span class="kicker">Tek kontrol merkezi</span>
+              <h3>Çalışma alanları, ajanlar ve gizlilik ayarları bir arada.</h3>
+              <p>Türkçe ve İngilizce arayüz; açık, koyu veya sistem görünümü.</p>
+            </div>
+            <div class="shot-frame">
+              <img
+                src="assets/agentnest-settings.png"
+                alt="AgentNest ayarlar ekranı"
+                loading="lazy"
+                width="2384"
+                height="1800"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="guvenlik">
+        <div class="shell security-grid">
+          <div class="security-copy reveal">
+            <span class="kicker">Yerel-öncelikli</span>
+            <h2>Kontrol sende.<br />Veri sende.</h2>
+            <p>
+              AgentNest model trafiğini aracıdan geçirmez, sohbet geçmişini tutmaz ve kullanım telemetrisi göndermez.
+              Ajanın mevcut hesabıyla doğrudan çalışır.
+            </p>
+            <a class="inline-link" href="https://github.com/unalertu/AgentNest-showcase" target="_blank" rel="noreferrer">GitHub'da incele</a>
+          </div>
+          <div class="security-list reveal" data-delay="1">
+            <div><span>01</span><strong>Yalnızca localhost üzerinden SSH</strong><i>127.0.0.1</i></div>
+            <div><span>02</span><strong>Host klasörleri bağlı değil</strong><i>Varsayılan</i></div>
+            <div><span>03</span><strong>Pano ve sürükle-bırak kapalı</strong><i>İzole</i></div>
+            <div><span>04</span><strong>Reklam ve telemetri yok</strong><i>Sıfır</i></div>
+            <div><span>05</span><strong>Yerel log, hassas veri maskeleme</strong><i>Açık</i></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section requirements-section" id="gereksinimler">
+        <div class="shell requirements-card reveal">
+          <div>
+            <span class="kicker">Uyumluluk</span>
+            <h2>AgentNest bu Mac için hazır mı?</h2>
+          </div>
+          <dl class="requirements-list">
+            <div><dt>İşlemci</dt><dd>Intel x86_64</dd></div>
+            <div><dt>macOS</dt><dd>13 Ventura veya üzeri</dd></div>
+            <div><dt>Bellek</dt><dd>En az 4 GB boş RAM</dd></div>
+            <div><dt>Depolama</dt><dd>En az 35 GB boş alan</dd></div>
+          </dl>
+          <p class="requirements-note">QEMU 11.1.1 dahildir. Homebrew veya ayrı bir sanallaştırma aracı gerekmez.</p>
+        </div>
+      </section>
+
+      <section class="download-section">
+        <div class="shell download-card reveal">
+          <div class="download-glow" aria-hidden="true"></div>
+          <img src="assets/agentnest-icon.png" alt="" width="96" height="96" />
+          <span class="kicker">Özel beta · v1.4.1</span>
+          <h2>Ajanına temiz bir yuva aç.</h2>
+          <p>Intel Mac için AgentNest'i indir. Birkaç adımda yerel Ubuntu çalışma alanını hazırla.</p>
+          <button class="button button-primary button-download-large download-trigger" type="button">
+            AgentNest'i indir
+            <span class="button-meta">DMG · 172 MB</span>
+          </button>
+          <div class="download-details">
+            <span>SHA-256 doğrulaması</span>
+            <span>macOS 13+</span>
+            <span>QEMU dahil</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <a class="brand" href="#top">
+            <img src="assets/agentnest-icon.png" alt="" width="34" height="34" />
+            <span>AgentNest</span>
+          </a>
+          <p>AI kodlama ajanları için ayrı, yerel bir Linux bilgisayar.</p>
+        </div>
+        <nav aria-label="Alt menü">
+          <a href="https://github.com/unalertu/AgentNest-showcase" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/unalertu/AgentNest-showcase#security-and-privacy-by-default" target="_blank" rel="noreferrer">Güvenlik</a>
+          <a href="https://github.com/unalertu/AgentNest-showcase/issues" target="_blank" rel="noreferrer">Destek</a>
+        </nav>
+        <p class="footer-meta">© 2026 AgentNest<br />Yerel Linux. Bilinçli erişim.</p>
+      </div>
+    </footer>
+
+    <dialog class="download-dialog" data-download-dialog aria-labelledby="download-title">
+      <form method="dialog" class="dialog-panel" data-download-form>
+        <button class="dialog-close" value="cancel" aria-label="Pencereyi kapat">×</button>
+        <div class="dialog-icon"><img src="assets/agentnest-icon.png" alt="" width="64" height="64" /></div>
+        <span class="kicker">İndirmeden önce</span>
+        <h2 id="download-title">Güncellemeleri nasıl takip etmek istersin?</h2>
+        <p class="dialog-intro">AgentNest yeni bir sürüm yayınlandığında bu site sana haber verebilir.</p>
+
+        <div class="update-options" role="radiogroup" aria-label="Güncelleme tercihi">
+          <label class="update-option">
+            <input type="radio" name="updates" value="automatic" checked />
+            <span class="radio-mark" aria-hidden="true"></span>
+            <span>
+              <strong>Otomatik kontrol et <em>Önerilen</em></strong>
+              <small>Bu tarayıcıdan siteye döndüğünde yeni sürümü kontrol et ve bana bildir.</small>
+            </span>
+          </label>
+          <label class="update-option">
+            <input type="radio" name="updates" value="manual" />
+            <span class="radio-mark" aria-hidden="true"></span>
+            <span>
+              <strong>Ben kontrol ederim</strong>
+              <small>İndirmeyi şimdi başlat; güncellemeleri daha sonra kendim takip edeceğim.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="beta-notice">
+          <strong>Beta bilgisi</strong>
+          Bu sürüm henüz Apple tarafından notarize edilmemiş olabilir. macOS ilk açılışta güvenlik uyarısı gösterebilir.
+        </div>
+
+        <button class="button button-primary dialog-download" type="submit" value="download">
+          İndirmeyi başlat
+          <span class="button-meta">AgentNest 1.4.1</span>
+        </button>
+        <p class="dialog-footnote">Uygulama iznin olmadan sessizce güncellenmez. Tercihini daha sonra bu siteden değiştirebilirsin.</p>
+      </form>
+    </dialog>
+  </body>
+</html>
