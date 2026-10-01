@@ -18,6 +18,13 @@ const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector(".menu-button");
 const navigation = document.querySelector(".site-nav");
 const updateBanner = document.querySelector("[data-update-banner]");
+const scrollProgress = document.querySelector("[data-scroll-progress]");
+const heroWindow = document.querySelector(".app-window");
+const productShot = document.querySelector(".shot-frame");
+const ambientOne = document.querySelector(".ambient-one");
+const ambientTwo = document.querySelector(".ambient-two");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let scrollFrame;
 
 function compareVersions(a, b) {
   const aParts = String(a).split(".").map(Number);
@@ -87,8 +94,71 @@ document.querySelector("[data-dismiss-update]").addEventListener("click", () => 
   updateBanner.hidden = true;
 });
 
-window.addEventListener("scroll", () => {
+function updateScrollEffects() {
+  scrollFrame = undefined;
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? Math.min(window.scrollY / scrollableHeight, 1) : 0;
+  scrollProgress.style.transform = `scaleX(${progress})`;
   header.classList.toggle("is-scrolled", window.scrollY > 16);
+
+  if (reducedMotion.matches) return;
+
+  const heroShift = Math.min(window.scrollY * 0.055, 34);
+  heroWindow.style.setProperty("--hero-shift", `${heroShift}px`);
+
+  const shotRect = productShot.getBoundingClientRect();
+  const shotProgress = Math.max(-1, Math.min(1, (shotRect.top - window.innerHeight / 2) / window.innerHeight));
+  productShot.style.setProperty("--shot-shift", `${shotProgress * -18}px`);
+}
+
+function queueScrollEffects() {
+  if (scrollFrame) return;
+  scrollFrame = window.requestAnimationFrame(updateScrollEffects);
+}
+
+window.addEventListener("scroll", queueScrollEffects, { passive: true });
+window.addEventListener("resize", queueScrollEffects);
+
+window.addEventListener(
+  "pointermove",
+  (event) => {
+    if (reducedMotion.matches || event.pointerType === "touch") return;
+    const x = (event.clientX / window.innerWidth - 0.5) * 18;
+    const y = (event.clientY / window.innerHeight - 0.5) * 14;
+    ambientOne.style.setProperty("--ambient-x", `${x}px`);
+    ambientOne.style.setProperty("--ambient-y", `${y}px`);
+    ambientTwo.style.setProperty("--ambient-x", `${x * -0.7}px`);
+    ambientTwo.style.setProperty("--ambient-y", `${y * -0.7}px`);
+  },
+  { passive: true },
+);
+
+document.querySelectorAll(".feature-card").forEach((card) => {
+  card.addEventListener("pointermove", (event) => {
+    if (reducedMotion.matches || event.pointerType === "touch") return;
+    const bounds = card.getBoundingClientRect();
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+    const rotateY = ((x / bounds.width) - 0.5) * 5;
+    const rotateX = ((y / bounds.height) - 0.5) * -5;
+    card.style.setProperty("--spot-x", `${x}px`);
+    card.style.setProperty("--spot-y", `${y}px`);
+    card.style.setProperty("--card-rotate-x", `${rotateX}deg`);
+    card.style.setProperty("--card-rotate-y", `${rotateY}deg`);
+  });
+
+  card.addEventListener("pointerenter", (event) => {
+    if (reducedMotion.matches || event.pointerType === "touch") return;
+    card.classList.add("is-hovering");
+    card.style.setProperty("--card-lift", "-6px");
+  });
+
+  card.addEventListener("pointerleave", () => {
+    card.classList.remove("is-hovering");
+    card.style.setProperty("--card-lift", "0px");
+    card.style.setProperty("--card-rotate-x", "0deg");
+    card.style.setProperty("--card-rotate-y", "0deg");
+  });
 });
 
 menuButton.addEventListener("click", () => {
@@ -117,4 +187,16 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+const stepObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("is-active");
+    });
+  },
+  { threshold: 0.55 },
+);
+
+document.querySelectorAll(".steps li").forEach((step) => stepObserver.observe(step));
+updateScrollEffects();
 loadRelease();
